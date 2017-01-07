@@ -1,0 +1,32 @@
+{
+  "name": "learning-progressive",
+  "version": "1.0.0",
+  "description": "Learning of progressive application web development",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dmkhomen/learning-progressive.git"
+  },
+  "author": "dmkhomen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dmkhomen/learning-progressive/issues"
+  },
+  "homepage": "https://github.com/dmkhomen/learning-progressive#readme",
+  "devDependencies": {
+    "browser-sync": "^2.18.6",
+    "browserify": "^13.3.0",
+    "gulp": "^3.9.1",
+    "gulp-browserify": "^0.5.1",
+    "gulp-clean-css": "^2.3.2",
+    "gulp-concat-css": "^2.3.0",
+    "gulp-if": "^2.0.2",
+    "gulp-sourcemaps": "^1.9.1",
+    "gulp-uglify": "^2.0.0",
+    "gulp-util": "^3.0.8",
+    "jquery": "^3.1.1",
+    "sw-precache": "^4.3.0"
+  },
+  "dependencies": {
+    "handlebars": "^4.0.6"
+  }
+}
