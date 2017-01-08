@@ -7,7 +7,8 @@ var gulp = require('gulp'),
     gulpif = require('gulp-if'),
     concat = require('gulp-concat'),
     sass = require('gulp-sass'),
-
+    imagemin = require('gulp-imagemin'),
+    pngcrush = require('imagemin-pngcrush'),
     jsonminify = require('gulp-jsonminify'),
     minifyHTML = require('gulp-minify-html'),
     swPrecache = require('sw-precache');
@@ -71,11 +72,25 @@ gulp.task('html',function(){
     }))
 });
 
+gulp.task('images',function(){
+  gulp.src(src + '/images/**/*.*')
+    .pipe(imagemin({
+      progressive: true,
+      svgoPlugins: [{removeViewbox: false}],
+      use: [pngcrush()]
+    }))
+    .pipe(gulp.dest(dist + '/images'))
+    .pipe(browserSync.reload({
+      stream: true
+    }))
+});
+
 gulp.task('watch', function(){
   gulp.watch(src + '/js/*.js', ['js']);
   gulp.watch(src + '/css/*.scss', ['css']);
   gulp.watch(src + '/data/*.json', ['json']);
   gulp.watch(src + '/*.php', ['html']);
+  gulp.watch(src + '/images/**/*.*', ['images']);
 });
 
-gulp.task('default', ['browser-sync', 'js', 'css', 'json', 'html', 'watch']);
+gulp.task('default', ['browser-sync', 'js', 'css', 'json', 'html', 'images', 'watch']);
