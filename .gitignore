@@ -1,6 +1,4 @@
 .DS_Store
 node_modules
 .tmp
-dist/css/app.css
-dist/js/app.js
-src/images/**
+.sass-cache
