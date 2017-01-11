@@ -7,9 +7,9 @@
     <title>Progressive Web Apps</title>
     <link rel="stylesheet" href="css/app.css">
     <style media="screen">
-        .page, #slideshow {
-            height: 100vh;
-        }
+    .page, #slideshow {
+        height: 100vh;
+    }
     </style>
 </head>
 <body>
@@ -42,8 +42,23 @@
                 </div>
             </div>
         </nav>
+        <script id="slideshow-template" type="text/x-handlebars-template">
+            <div id="slideshow" class="carousel fade" data-ride="carousel">
+                <div class="carousel-inner">
+                    {{#each slideshow}}
+                    {{#if @first}}
+                    <div class="item active"><img src="images/pets/{{filename}}.jpg" alt="{{pet}} photo"></div>
+                    {{else}}
+                    <div class="item"><img src="images/pets/{{filename}}.jpg" alt="{{pet}} photo"></div>
+                    {{/if}}
+                    {{/each}}
+                </div>
+                <a href="#slideshow" class="left carousel-control" role="button" data-slide="prev"></a>
+                <a href="#slideshow" class="right carousel-control" role="button" data-slide="next"></a>
+            </div>
+        </script>
+        <div id="slideshow-content"></div>
     </header>
-    <div id="slideshow-content"></div>
     <main>
         <div class="page" id="adoption">
             <div class="container">
