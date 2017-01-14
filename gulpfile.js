@@ -11,6 +11,7 @@ imagemin = require('gulp-imagemin'),
 pngcrush = require('imagemin-pngcrush'),
 jsonminify = require('gulp-jsonminify'),
 minifyHTML = require('gulp-minify-html'),
+path = require('path'),
 swPrecache = require('sw-precache');
 
 var src = './src',
@@ -31,6 +32,12 @@ gulp.task('browser-sync', function() {
     });
 });
 
+gulp.task('generate-service-worker', function(callback){
+    swPrecache.write('/dist/service-worker.js', {
+        staticFileGlobs: [ '/dist/**/*.{js,html,json,css,png,jpg,gif,svg,eot,ttf,woff}' ],
+        stripPrefix: dist
+    }, callback)
+});
 
 gulp.task('js',function(){
     gulp.src(src + '/js/app.js')
@@ -86,11 +93,11 @@ gulp.task('images',function(){
 });
 
 gulp.task('watch', function(){
-    gulp.watch(src + '/js/*.js', ['js']);
-    gulp.watch(src + '/css/*.scss', ['css']);
-    gulp.watch(src + '/data/*.json', ['json']);
-    gulp.watch(src + '/*.php', ['html']);
+    gulp.watch(src + '/js/*.js', ['generate-service-worker','js']);
+    gulp.watch(src + '/css/*.scss', ['generate-service-worker','css']);
+    gulp.watch(src + '/data/*.json', ['generate-service-worker','json']);
+    gulp.watch(src + '/*.php', ['generate-service-worker','html']);
     gulp.watch(src + '/images/**/*.*', ['images']);
 });
 
-gulp.task('default', ['browser-sync', 'js', 'css', 'json', 'html', 'images', 'watch']);
+gulp.task('default', ['js', 'css', 'json', 'html', 'images', 'generate-service-worker', 'browser-sync', 'watch']);
