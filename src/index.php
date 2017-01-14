@@ -61,25 +61,11 @@
                 <p>These loving and deserving pets need a home. Please help us find a place for them. Click on their photo for more information.</p>
                 <script id="adoption-template" type="text/handlebars-template">
                 {{#each adoption}}
-                <div class="col-md-2 col-sm-3 col-xs-4 openpetmodal" data-toggle="modal" data-target="#adoption{{filename}}">
+                <div class="col-md-2 col-sm-3 col-xs-4 openpetmodal" data-toggle="modal" data-target="#wisdompetmodal" data-petname="{{pet}}" data-petbreed="{{breed}}" data-petowner="{{owner}}" data-petinfo={{description}} data-petimage="{{filename}}">
                 <img class="img-circle" src="images/pets/{{filename}}_tn.jpg" alt="{{pet}} photo"/>
                 </div>
 
-                <div class="modal fade" id="adoption{{filename}}" tabindex="-1" role="dialog" aria-labelledby="petModal">
-                <div class="modal-dialog" data-dismiss="modal" aria-label="close" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="close" role="document"><span aria-hidden="true">&times;</span></button>
-                        <h2 class="modal-title modal-petname">{{pet}}</h2>
-                        <div class="modal-petbreed">{{breed}}</div>
-                    </div>
-                    <div class="modal-body">
-                        <img class="img-responsive modal-petimage" src="images/pets/{{filename}}.jpg" alt="{{pet}} photo">
-                        <p class="modal-petinfo">{{description}}</p>
-                    </div>
-                </div>
-                </div>
-                </div>
+
                 {{/each}}
                 </script>
                 <div id="adoption-content"></div>
@@ -92,6 +78,21 @@
             </div><!-- container -->
         </div><!-- page-appointments -->
     </main>
+    <div class="modal fade" id="wisdompetmodal" tabindex="-1" role="dialog" aria-labelledby="petModal">
+        <div class="modal-dialog" data-dismiss="modal" aria-label="close" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="close" role="document"><span aria-hidden="true">&times;</span></button>
+                    <h2 class="modal-title modal-petname"></h2>
+                    <div class="modal-petbreed"></div>
+                </div>
+                <div class="modal-body">
+                    <img class="img-responsive modal-petimage">
+                    <p class="modal-petinfo"></p>
+                </div>
+            </div>
+        </div>
+    </div>
     <script src="js/app.js"></script>
 </body>
 </html>
