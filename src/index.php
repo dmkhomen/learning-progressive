@@ -6,11 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Progressive Web Apps</title>
     <link rel="stylesheet" href="css/app.css">
-    <style media="screen">
-    .page, #slideshow {
-        height: 100vh;
-    }
-    </style>
 </head>
 <body>
     <div class="loader">
@@ -64,6 +59,14 @@
             <div class="container">
                 <h2 class="page-headline">Adoptions</h2>
                 <p>These loving and deserving pets need a home. Please help us find a place for them. Click on their photo for more information.</p>
+                <script id="adoption-template" type="text/handlebars-template">
+                {{#each adoption}}
+                <div class="col-md-2 col-sm-3 col-xs-4">
+                <img class="img-circle" src="images/pets/{{filename}}_tn.jpg" alt="{{pet}} photo"/>
+                </div>
+                {{/each}}
+                </script>
+                <div id="adoption-content"></div>
             </div><!-- container -->
         </div><!-- page-adoption -->
         <div class="page" id="appointments">

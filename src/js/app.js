@@ -7,11 +7,17 @@ $(function(){
 
     $.getJSON('data/pets.json', function(data){
         var slideshowTemplate = $('#slideshow-template').html();
-        console.log(slideshowTemplate);
         var slideshowScript = Handlebars.compile(slideshowTemplate);
+
+        var adoptionTemplate = $('#adoption-template').html();
+        var adoptionScript = Handlebars.compile(adoptionTemplate);
+
+
         $('.loader').fadeOut(1000);
 
         $('#slideshow-content').append(slideshowScript(data));
+        $('#adoption-content').append(adoptionScript(data));
+
         //replace img with bg
         $('#slideshow .item img').each(function(){
             var imgSrc = $(this).attr('src');
