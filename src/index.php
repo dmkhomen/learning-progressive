@@ -59,14 +59,14 @@
             <div class="container">
                 <h2 class="page-headline">Adoptions</h2>
                 <p>These loving and deserving pets need a home. Please help us find a place for them. Click on their photo for more information.</p>
-                <script id="adoption-template" type="text/handlebars-template">
-                {{#each adoption}}
-                <div class="col-md-2 col-sm-3 col-xs-4 openpetmodal" data-toggle="modal" data-target="#wisdompetmodal" data-petname="{{pet}}" data-petbreed="{{breed}}" data-petowner="{{owner}}" data-petinfo={{description}} data-petimage="{{filename}}">
-                <img class="img-circle" src="images/pets/{{filename}}_tn.jpg" alt="{{pet}} photo"/>
-                </div>
+                <script id="adoption-template" type="text/x-handlebars-template">
+                    {{#each adoption}}
+                    <div class="col-md-2 col-sm-3 col-xs-4 openpetmodal" data-toggle="modal" data-target="#wisdompetmodal" data-petname="{{pet}}" data-petbreed="{{breed}}" data-petowner="{{owner}}" data-petinfo="{{description}}" data-petimage="{{filename}}">
+                        <img class="img-circle" src="images/pets/{{filename}}_tn.jpg" alt="{{pet}} photo"/>
+                    </div>
 
 
-                {{/each}}
+                    {{/each}}
                 </script>
                 <div id="adoption-content"></div>
             </div><!-- container -->
@@ -75,6 +75,25 @@
             <div class="container">
                 <h2 class="page-headline">Appointments</h2>
                 <p>Here's the pets that came in this week for an appointment. Click on a pet's photo for more info.</p>
+                <script id="appointments-template" type="text/x-handlebars-template">
+                    {{#each appointments}}
+                    <div class="appointment media openpetmodal" data-toggle="modal" data-target="#wisdompetmodal" data-petname="{{pet}}" data-petbreed="{{breed}}" data-petowner="{{owner}}" data-petinfo="{{reason}}" data-petimage="{{filename}}">
+                        <div class="media-left media-top">
+                            <img src="images/pets/{{filename}}_tn.jpg" alt="{{pet}} photo" class="media-ogject appointment-img img-rounded">
+                        </div>
+                        <div class="media-body">
+                            <h3 class="media-heading appointments-heading">{{pet}}, <span class="appointment-breed">{{breed}}</span>
+                            </h3>
+                            <div class="appointment-owner">
+                                <span class="appointment-owner-title">Owner: </span>
+                                <span class="appointment-owner-name">{{owner}}</span>
+                                <div class="appointment-reason">{{reason}}</div>
+                            </div>
+                        </div>
+                    </div>
+                    {{/each}}
+                </script>
+                <div class="" id="appointments-content"></div>
             </div><!-- container -->
         </div><!-- page-appointments -->
     </main>
