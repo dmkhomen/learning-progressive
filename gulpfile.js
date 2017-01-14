@@ -33,9 +33,9 @@ gulp.task('browser-sync', function() {
 });
 
 gulp.task('generate-service-worker', function(callback){
-    swPrecache.write('/dist/service-worker.js', {
-        staticFileGlobs: [ '/dist/**/*.{js,html,json,css,png,jpg,gif,svg,eot,ttf,woff}' ],
-        stripPrefix: dist
+    swPrecache.write('./dist/service-worker.js', {
+        staticFileGlobs: [ './dist/**/*.{js,html,json,css,png,jpg,gif,svg,eot,ttf,woff}' ],
+        stripPrefix: 'dist/'
     }, callback)
 });
 
