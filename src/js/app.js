@@ -13,6 +13,8 @@ $(function(){
             })
     }
 
+
+
     $.getJSON('data/pets.json', function(data){
         var slideshowTemplate = $('#slideshow-template').html();
         var slideshowScript = Handlebars.compile(slideshowTemplate);
@@ -42,6 +44,10 @@ $(function(){
             pause: false
         });
 
+    });
+
+    $('.reload').click(function(){
+        window.location.reload();
     });
 
 

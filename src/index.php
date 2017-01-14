@@ -18,6 +18,7 @@
         <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
             <div class="container">
                 <div class="navbar-header">
+                    <img src="images/icons/icon_reload.svg" alt="Reload Button" class="reload reloadbtn-lg">
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapse">
                         <span class="sr-only">Toggle navigation</span>
                         <span class="icon-bar"></span>
@@ -30,6 +31,7 @@
                 </div>
                 <div class="collapse navbar-collapse" id="collapse">
                     <ul class="nav navbar-nav navbar-right">
+                        <li class="active"><img src="images/icons/icon_reload.svg" alt="Reload Button" class="reload reloadbtn"></li>
                         <li class="active"><a href="#slideshow">Home</a></li>
                         <li><a href="#adoption">Adoption</a></li>
                         <li><a href="#appointments">Appointments</a></li>
